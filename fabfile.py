@@ -66,7 +66,7 @@ EOF
 <configuration>
 <property>
 <name>hadoop.tmp.dir</name>
-<value>/data/tmp/hadoop-\\${user.name}</value>
+<value>/data/tmp/hadoop-hdfs</value>
 </property>
 <property>
 <name>io.file.buffer.size</name>
@@ -167,8 +167,8 @@ def install_datanode(master):
 
 def initd(cmnd):
     with settings(warn_only=True):
-        run("/etc/init.d/hadoop-0.20-mapreduce-jobtracker %s" % cmnd)
-        run("/etc/init.d/hadoop-0.20-mapreduce-tasktracker %s" % cmnd)
-        run("/etc/init.d/hadoop-hdfs-datanode %s" % cmnd)
-        run("/etc/init.d/hadoop-hdfs-namenode %s" % cmnd)
+        run("sudo /etc/init.d/hadoop-0.20-mapreduce-jobtracker %s" % cmnd)
+        run("sudo /etc/init.d/hadoop-0.20-mapreduce-tasktracker %s" % cmnd)
+        run("sudo /etc/init.d/hadoop-hdfs-datanode %s" % cmnd)
+        run("sudo /etc/init.d/hadoop-hdfs-namenode %s" % cmnd)
 
